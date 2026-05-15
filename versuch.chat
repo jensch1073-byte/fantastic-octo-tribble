@@ -1,0 +1,18 @@
+Vorschlag für die Verbindung zu exFAT-Laufwerken:
+
+1. Stelle sicher, dass das exFAT-Paket installiert ist:
+   sudo apt update && sudo apt install exfat-fuse exfat-utils
+
+2. Erstelle einen Einhängepunkt:
+   sudo mkdir -p /mnt/exfat
+
+3. Verbinde das Laufwerk (z.B. /dev/sdb1) und mounte es:
+   sudo mount -t exfat /dev/sdb1 /mnt/exfat
+
+4. Wenn du eine Einwahl bzw. schnellen Zugriff willst, kannst du einen Eintrag in /etc/fstab hinzufügen:
+   /dev/sdb1 /mnt/exfat exfat defaults,nofail 0 0
+
+5. Zum Aushängen:
+   sudo umount /mnt/exfat
+
+Damit hast du eine einfache Einwahl in ein exFAT-Laufwerk auf Linux.
